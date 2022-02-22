@@ -16,9 +16,24 @@ enum EnumAbc {
   C
 }
 
-model Abc {
-  id BigInt
-  enum EnumAbc
+enum EnumDef {
+  D
+  E
+  F
+}
 
-  @@id([id, enum])
+enum EnumGhi {
+  G
+  H
+  I
+}
+
+model Abc {
+  id    BigInt
+  enum  EnumAbc
+  enum2 EnumDef
+  enum3 EnumGhi
+  float Float
+
+  @@id([id, enum, enum2])
 }

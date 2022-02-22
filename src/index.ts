@@ -1,16 +1,16 @@
-import { EnumAbc, PrismaClient } from "@prisma/client";
+import { EnumAbc, EnumDef, EnumGhi, PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient({
   // log: ['query']
 })
 
-const numOfInserts = 10000
+const numOfInserts = 50000
 
 async function bootstrap() {
   let counter = 0
 
   while (true) {
-    const rows = [...Array(numOfInserts)].map((_, i) => ({ id: counter + i + 1, enum: EnumAbc.A }))
+    const rows = [...Array(numOfInserts)].map((_, i) => ({ id: counter + i + 1, enum: EnumAbc.A, enum2: EnumDef.D, enum3: EnumGhi.G, float: 0.1 }))
 
     counter += numOfInserts
     console.log('insert count:', counter)
